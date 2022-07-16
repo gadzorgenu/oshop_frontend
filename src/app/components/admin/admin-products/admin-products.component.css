@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+  }
+  
+
+  .search{
+    position: relative;
+    left: 80%;
+    width: 20%;
+  }
+
+ .edit{
+  text-decoration: none;
+ }
+

@@ -1,0 +1,28 @@
+.form-group{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn{
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    width: 100%;
+}
+
+.product-form{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.title{
+    text-align: center;
+}
+
+.back_link{
+    text-decoration: none;
+}
+
+.back{
+    text-align: right;
+}
+

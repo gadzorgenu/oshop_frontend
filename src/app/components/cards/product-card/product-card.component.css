@@ -1,0 +1,15 @@
+.card{
+    margin-bottom: 2.2rem;
+    height: 25rem;
+    width: 90%;
+}
+
+.image{
+    height: 15rem;
+}
+
+
+.btn{
+    width: 100%;
+    margin: 0;
+}
