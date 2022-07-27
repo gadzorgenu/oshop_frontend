@@ -47,7 +47,11 @@ export class ShoppingCartService {
   //   return this.http.get<ShoppingCart>(`${this.base_url}/${cartId}/items/${productId}`)
   // }
 
-  addToCart(productId: string, operation: string){
+  addToCart(productId: string, operation: string): Observable<ShoppingCart>{
     return this.http.post<ShoppingCart>(`${this.base_url}/${operation}`, productId);
+  }
+
+  getItem(cartId: string): Observable<ShoppingCart>{
+    return this.http.get<ShoppingCart>(`${this.base_url}/${cartId}`)
   }
 }

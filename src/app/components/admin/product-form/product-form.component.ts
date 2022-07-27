@@ -49,7 +49,6 @@ export class ProductFormComponent implements OnInit {
       this.productService.addProduct(product).subscribe();
     }
     this.router.navigate(['/admin/products'])
-
   }
 
   deleteProduct(): void {
@@ -57,8 +56,6 @@ export class ProductFormComponent implements OnInit {
     
       this.productService.deleteProduct(this.id).subscribe()
       this.router.navigate(['/admin/products'])
-    
   }
-
 
 }

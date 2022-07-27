@@ -1,3 +1,4 @@
+import { ShoppingCartService } from './../../services/shopping-cart/shopping-cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from './../../services/product/product.service';
 import { Product } from '../../models/Product';
@@ -15,8 +16,10 @@ export class ProductComponent {
   
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService 
+    private productService: ProductService ,
+    private cartService: ShoppingCartService
   ) { 
+    
     this.getProducts();
    
     this.route.queryParamMap.subscribe(params => {
