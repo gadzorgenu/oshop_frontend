@@ -48,10 +48,12 @@ export class ShoppingCartService {
   // }
 
   addToCart(productId: string, operation: string): Observable<ShoppingCart>{
-    return this.http.post<ShoppingCart>(`${this.base_url}/${operation}`, productId);
+    return this.http.post<ShoppingCart>(`${this.base_url}/${productId}/${operation}`, null);
   }
 
   getItem(cartId: string): Observable<ShoppingCart>{
     return this.http.get<ShoppingCart>(`${this.base_url}/${cartId}`)
   }
+
+  
 }

@@ -5,12 +5,20 @@
             <p class="card-text" *ngIf="product.price">{{product.price | currency:'USD':'symbol'}}</p>
             <button 
                 *ngIf="showActions" 
-                (click)="addToCart(product)" 
+                (click)="addToCart(product.id)" 
                 class="btn btn-primary btn-block"
             >
                 Add to Cart
             </button>
-            <div>{{getQuantity()}}</div>
+            <button 
+                *ngIf="showActions" 
+                (click)="reduceQuantity(product.id)" 
+                class="btn btn-primary btn-block"
+            >
+                remove
+            </button>
+            <!-- <div>{{getQuantity()}}</div> -->
+            <button> {{getQuantity()}}</button>
         </div>
     </div>
 

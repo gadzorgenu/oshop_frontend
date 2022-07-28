@@ -1,3 +1,4 @@
+import { ShoppingCartService } from './../../../services/shopping-cart/shopping-cart.service';
 import { Product } from './../../../models/Product';
 import { ProductService } from './../../../services/product/product.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,12 +12,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProductFormComponent implements OnInit {
   categories: any;
   product: any = {};
+  cartReq!: string; 
   id: any;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
   ) {
 
     this.id = this.route.snapshot.paramMap.get('id');
@@ -37,7 +39,9 @@ export class ProductFormComponent implements OnInit {
 
   getProduct(id: string): void {
     this.productService.getProduct(id).subscribe(
-      result => this.product = result
+      result => {
+        this.product = result
+      }
     )
   }
 

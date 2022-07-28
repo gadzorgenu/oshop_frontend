@@ -19,6 +19,8 @@ export class ProductComponent {
     private productService: ProductService ,
     private cartService: ShoppingCartService
   ) { 
+
+    cartService.getItem
     
     this.getProducts();
    
