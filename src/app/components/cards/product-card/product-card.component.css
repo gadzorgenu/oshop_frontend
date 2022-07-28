@@ -13,3 +13,8 @@
     width: 100%;
     margin: 0;
 }
+
+.card-footer{
+    padding: 0;
+    margin: 0;
+}
