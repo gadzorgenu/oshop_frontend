@@ -10,10 +10,10 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductCardComponent {
   @Input('product') product!: Product;
+  @Input('cartItem') cartItem!: ShoppingCart;
   @Input('show-actions') showActions = true;
   @Input('shopping-cart') shoppingCart!: ShoppingCart;
-  @Input('quantity') quantity!: number;
-  cart: any = {};
+
 
   constructor(private cartService: ShoppingCartService) {
    }
@@ -23,7 +23,7 @@ export class ProductCardComponent {
       (res: ShoppingCart) => {
         localStorage.setItem("cartId", res.id)
         this.cartService.getItem(res.id).subscribe(
-          (result: ShoppingCart) =>  this.cart = result
+          (result: ShoppingCart) =>  this.cartItem = result
         )
       }
     );
@@ -38,20 +38,18 @@ export class ProductCardComponent {
   reduceQuantity(productId: string): void{
     this.cartService.addToCart(productId, 'remove').subscribe(
       (res: ShoppingCart) => {
-        this.cartService.getItem(res.id).subscribe(
-          (result: ShoppingCart) =>  this.cart = result
-        )
+        // this.cartService.getItem(res.id).subscribe(
+        //   (result: ShoppingCart) =>  this.cart = result
+        // )
       }
     );
   }
 
 
   getQuantity(){
-    // console.log(this.cart)
-
-  if(!this.cart) return 0;
-   let item =  this.cart.id;
-   return item ? this.cart.quantity : 0;
+  if(!this.cartItem) return 0;
+   let item =  this.cartItem.id;
+   return item ? this.cartItem.quantity : 0;
 
   }
 

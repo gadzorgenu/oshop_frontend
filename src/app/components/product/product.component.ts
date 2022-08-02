@@ -1,3 +1,4 @@
+import { ShoppingCart } from './../../models/ShoppingCart';
 import { ShoppingCartService } from './../../services/shopping-cart/shopping-cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from './../../services/product/product.service';
@@ -11,6 +12,8 @@ import { Component } from '@angular/core';
 })
 export class ProductComponent {
   products: Product[] = [];
+  cartItems: ShoppingCart[] = [];
+  cartItem!: ShoppingCart ;
   category: any;
   productSize!: number; 
   
@@ -19,10 +22,10 @@ export class ProductComponent {
     private productService: ProductService ,
     private cartService: ShoppingCartService
   ) { 
-
     cartService.getItem
     
     this.getProducts();
+    this.getItems();
    
     this.route.queryParamMap.subscribe(params => {
       this.category  = params.get('category');
@@ -37,6 +40,13 @@ export class ProductComponent {
       (res: Product[]) => {
         this.products = res;
         this.productSize = res.length
+      })
+  }
+
+  getItems():void {
+    this.cartService.getItems().subscribe(
+      (res:ShoppingCart[]) => {
+        this.cartItems = res
       }
     )
   }
@@ -48,5 +58,4 @@ export class ProductComponent {
       }
     )
   }
-
 }

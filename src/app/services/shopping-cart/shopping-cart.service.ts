@@ -55,5 +55,9 @@ export class ShoppingCartService {
     return this.http.get<ShoppingCart>(`${this.base_url}/${cartId}`)
   }
 
+  getItems(): Observable<ShoppingCart[]> {
+    return this.http.get<ShoppingCart[]>(`${this.base_url}/`)
+  }
+
   
 }
