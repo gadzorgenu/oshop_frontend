@@ -18,6 +18,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   this.cartService.getItems().subscribe(
     res => {
+      // let count = this.cartService.getTotalCount(cart);
+      // res.totalItemsCount
+      
       this.shoppingCartItemCount = 0
       for(let item in res){
         this.shoppingCartItemCount +=res[item].quantity

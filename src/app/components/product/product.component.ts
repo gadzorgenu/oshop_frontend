@@ -35,9 +35,7 @@ export class ProductComponent {
   }
 
 
-  //Todo: If product is found in cart, display cart else display product
-  //Maybe get all the ids in the cart, if the productID is found in the cart, then display the entire cart else get the product with the id 
-
+ 
   getProducts(): void {
     this.productService.getProducts().subscribe(
       (res: Product[]) => {
