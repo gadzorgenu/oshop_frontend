@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { A11yModule } from '@angular/cdk/a11y'
 
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormInputComponent } from './components/forms/form-input/form-input.component';
@@ -27,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProductFilterComponent } from './components/product/product-filter/product-filter.component';
 import { ProductCardComponent } from './components/cards/product-card/product-card.component';
+import { ToastModule } from '@syncfusion/ej2-angular-notifications';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,9 @@ import { ProductCardComponent } from './components/cards/product-card/product-ca
     MatSortModule,
     MatInputModule,
 
-    A11yModule
+    A11yModule,
+    ToastModule
+
 
   ],
   providers: [],

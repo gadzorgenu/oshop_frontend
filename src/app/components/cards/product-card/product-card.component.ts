@@ -1,7 +1,8 @@
 import { ShoppingCart } from './../../../models/ShoppingCart';
 import { ShoppingCartService } from './../../../services/shopping-cart/shopping-cart.service';
 import { Product } from './../../../models/Product';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
+import { ToastComponent } from '@syncfusion/ej2-angular-notifications';
 
 @Component({
   selector: 'product-card',
@@ -14,6 +15,8 @@ export class ProductCardComponent {
   @Input('show-actions') showActions = true;
   @Input('shopping-cart') shoppingCart!: ShoppingCart;
 
+  @ViewChild('element') element!: ToastComponent;
+
 
   constructor(private cartService: ShoppingCartService) {
    }
@@ -22,11 +25,16 @@ export class ProductCardComponent {
     this.cartService.addToCart(productId, 'add').subscribe(
       (res: ShoppingCart) => {
         localStorage.setItem("cartId", res.id)
+        this.onCreate();
         this.cartService.getItem(res.id).subscribe(
           (result: ShoppingCart) =>  this.cartItem = result
         )
       }
     );
+  }
+
+  onCreate() {
+    this.element.show();
   }
 
   // getCartId(){
