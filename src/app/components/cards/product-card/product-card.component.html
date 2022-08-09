@@ -21,7 +21,10 @@
                     </div>
             </div>
             </ng-template>
+            
         </div>
-
+        <div *ngIf="cartItem" class="rm">
+            <a class="remove" (click)="deleteProductFromCart(cartItem.id)"> Remove from cart</a>
+        </div>
     </div>
 </div>

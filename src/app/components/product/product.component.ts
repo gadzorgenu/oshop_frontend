@@ -3,7 +3,7 @@ import { ShoppingCartService } from './../../services/shopping-cart/shopping-car
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from './../../services/product/product.service';
 import { Product } from '../../models/Product';
-import { Component, Type } from '@angular/core';
+import { Component, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'product',
@@ -14,6 +14,7 @@ export class ProductComponent {
   products: Product[] = [];
   category: any;
   productSize!: number; 
+  @Output() productAdded = new EventEmitter()
   
   constructor(
     private route: ActivatedRoute,
@@ -40,6 +41,10 @@ export class ProductComponent {
         this.products = res;
         this.productSize = res.length
       })
+  }
+
+  addProductToCart(product: any){
+    this.productAdded.emit(product);
   }
 
   getProductsByCategory(): void {

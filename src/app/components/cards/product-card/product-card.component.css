@@ -22,3 +22,14 @@
 .text-center{
     padding-top: 0.5rem;
 }
+
+.remove{
+    text-decoration: none;
+    color:#6c757d;
+    cursor: pointer;
+}
+
+.rm{
+    padding-top: 0.5rem;
+    text-align: center;
+}

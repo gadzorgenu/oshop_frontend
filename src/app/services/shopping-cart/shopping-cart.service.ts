@@ -59,5 +59,9 @@ export class ShoppingCartService {
     return this.http.get<ShoppingCart[]>(`${this.base_url}/`)
   }
 
+  deleteProductFromCart(cartId: string): Observable<ShoppingCart>{
+    return this.http.delete<ShoppingCart>(`${this.base_url}/${cartId}`)
+  }
+
   
 }
