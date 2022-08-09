@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { ShoppingCart } from './../../../models/ShoppingCart';
 import { ShoppingCartService } from './../../../services/shopping-cart/shopping-cart.service';
 import { Product } from './../../../models/Product';
@@ -22,7 +21,6 @@ export class ProductCardComponent {
 
   constructor(
     private cartService: ShoppingCartService,
-    private router: Router
     ) {
    }
 
@@ -30,7 +28,6 @@ export class ProductCardComponent {
     this.cartService.addToCart(productId, 'add').subscribe(
       (res: ShoppingCart) => {
         localStorage.setItem("cartId", res.id)
-        this.onCreate();
         this.cartService.getItem(res.id).subscribe(
           (result: ShoppingCart) =>  this.cartItem = result
         )

@@ -1,5 +1,5 @@
 import { ShoppingCartService } from './../../services/shopping-cart/shopping-cart.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'navbar',
@@ -12,20 +12,18 @@ export class NavbarComponent implements OnInit {
   order = null
 
   constructor(private cartService: ShoppingCartService) { 
-    
   }
 
   ngOnInit() {
   this.cartService.getItems().subscribe(
     res => {
-      // let count = this.cartService.getTotalCount(cart);
-      // res.totalItemsCount
-      
       this.shoppingCartItemCount = 0
       for(let item in res){
-        this.shoppingCartItemCount +=res[item].quantity
+        this.shoppingCartItemCount +=res[item].quantity 
       }
     }
+
+
   )
   
      
