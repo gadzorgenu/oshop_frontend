@@ -1,3 +1,4 @@
+import { ShoppingList } from './../../models/ShoppingList';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ShoppingCart } from './../../models/ShoppingCart';
@@ -57,6 +58,10 @@ export class ShoppingCartService {
 
   getItems(): Observable<ShoppingCart[]> {
     return this.http.get<ShoppingCart[]>(`${this.base_url}/`)
+  }
+
+  getCart(): Observable<ShoppingList> {
+    return this.http.get<ShoppingList>(`${this.base_url}/all`)
   }
 
   deleteProductFromCart(cartId: string): Observable<ShoppingCart>{

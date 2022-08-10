@@ -9,20 +9,46 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-car
 })
 export class ShoppingCartComponent implements OnInit {
   cartItems: ShoppingCart[] = [];
+  category: any;
+  totalQuantity = 0
+
 
   constructor(private cartService: ShoppingCartService) {
-    this.getItems()
+    this.totalQuantity;
+    this.getCartDetail();
+
    }
 
-  getItems():void {
-    this.cartService.getItems().subscribe(
-      (res:ShoppingCart[]) => {
-        this.cartItems = res
-      }
+ 
+  ngOnInit(): void {
+    // this.getItems()
+  }
+
+  // getItems():void {
+  //   this.cartService.getItems().subscribe(
+  //     (res:ShoppingCart[]) => {
+  //       this.cartItems = res
+  //     }
+  //   )
+  // }
+
+  
+
+  getCartDetail(){
+    this.cartService.getCart().subscribe(
+      (res => {
+        this.totalQuantity = res.totalQuantity
+        this.cartItems = res.items
+
+      })
     )
   }
 
-  ngOnInit(): void {
-  }
+  get productIds(){
+   return Object.keys(this.cartItems)
+}
+
+  
+
 
 }
